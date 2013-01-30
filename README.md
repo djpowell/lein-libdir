@@ -15,13 +15,23 @@ This plugin provides a Leiningen task to emulate the behaviour of Leiningen 1.x.
 Put `[lein-libdir "0.1.0"]` into the `:plugins` vector of your
 `:user` profile`, or reference it from the :plugins property of your project.
 
-If you require the jar files to be copied somewhere other than "lib",
-then set the :libdir-path property in your project.
+The following options can be specified under the `:libdir` key in the
+project definition:
+
+* `:path` - A string containing the relative path of the target lib
+  dir. If omitted, the default is "lib".
+* `:filter` - A regular expression which must match on file names of jar
+  file names to be copied or a function which should be a predicate
+  accepting java.io.File objects and returning whether it should be
+  copied or not. The default is to copy all files.
+
+## Example
 
 ```clojure
 (defproject myproject "0.1.0-SNAPSHOT"
   :plugins [[lein-libdir "0.1.0"]]
-  :libdir-path "lib")
+  :libdir {:path "lib"
+           :filter #"frob"})
 ```
 
 To copy the files, run the libdir task:
