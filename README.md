@@ -20,7 +20,7 @@ project definition:
 
 * `:path` - A string containing the relative path of the target lib
   dir. If omitted, the default is "lib".
-* `filter` - A regular expression which must match on file names of jar
+* `:filter` - A regular expression which must match on file names of jar
   file names to be copied or a function which should be a predicate
   accepting java.io.File objects and returning whether it should be
   copied or not. The default is to copy all files.
