@@ -31,7 +31,7 @@ project definition:
 (defproject myproject "0.1.0-SNAPSHOT"
   :plugins [[lein-libdir "0.1.0"]]
   :libdir {:path "lib"
-           :filter #"^frob"})
+           :filter #"frob"})
 ```
 
 To copy the files, run the libdir task:
