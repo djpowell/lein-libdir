@@ -16,9 +16,9 @@
 
 (defn copy-deps
   [project target-dir sourceify?]
-  (let [project (project/unmerge-profiles project [:default])
+  (let [project (project/unmerge-profiles project [:dev :provided])
         deps (->> (classpath/resolve-dependencies :dependencies project)
-                  (filter #(and (.endsWith (.getName %) ".jar") (.exists %))))]
+                  (filter #(.exists %)))]
     (.mkdirs target-dir)
     (copy-files target-dir deps)
     (main/info "Copied" (count deps) "file(s) to:" (.getAbsolutePath target-dir))))

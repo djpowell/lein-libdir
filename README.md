@@ -12,7 +12,7 @@ This plugin provides a Leiningen task to emulate the behaviour of Leiningen 1.x.
 
 ## Usage
 
-Put `[lein-libdir "0.1.0"]` into the `:plugins` vector of your
+Put `[lein-libdir "0.1.1"]` into the `:plugins` vector of your
 `:user` profile`, or reference it from the :plugins property of your project.
 
 If you require the jar files to be copied somewhere other than "lib",
@@ -20,7 +20,7 @@ then set the :libdir-path property in your project.
 
 ```clojure
 (defproject myproject "0.1.0-SNAPSHOT"
-  :plugins [[lein-libdir "0.1.0"]]
+  :plugins [[lein-libdir "0.1.1"]]
   :libdir-path "lib")
 ```
 
